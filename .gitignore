@@ -1,0 +1,6 @@
+# Node modules
+book-management-frontend/node_modules/
+book-management-backend/node_modules/
+
+# Environment files
+book-management-backend/.env
