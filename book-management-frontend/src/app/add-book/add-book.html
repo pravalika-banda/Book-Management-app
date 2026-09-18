@@ -1,0 +1,47 @@
+<div class="container">
+  <h1 class="title">➕ Add New Book</h1>
+
+  <form (ngSubmit)="addBook()" class="book-form">
+
+    <div class="form-group">
+      <label>Title</label>
+      <input type="text" [(ngModel)]="book.title" name="title" required placeholder="Enter book title">
+    </div>
+
+    <div class="form-group">
+      <label>Author</label>
+      <input type="text" [(ngModel)]="book.author" name="author" required placeholder="Enter author name">
+    </div>
+
+    <div class="form-group">
+      <label>Description</label>
+      <textarea [(ngModel)]="book.description" name="description" placeholder="Enter book description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Price ($)</label>
+      <input type="number" [(ngModel)]="book.price" name="price" required placeholder="Enter price">
+    </div>
+
+    <div class="form-group">
+      <label>Pages</label>
+      <input type="number" [(ngModel)]="book.pages" name="pages" placeholder="Enter number of pages">
+    </div>
+
+    <div class="form-group">
+      <label>Categories (comma-separated)</label>
+      <input type="text" [(ngModel)]="categoriesInput" name="categories" placeholder="e.g. Fiction, Adventure">
+    </div>
+
+    <div class="form-group">
+      <label>Cover Image URL</label>
+      <input type="text" [(ngModel)]="book.coverUrl" name="coverUrl" placeholder="Paste cover image URL">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit"> Add Book</button>
+      <button type="button" class="btn-cancel" (click)="router.navigate(['/BookList'])">❌ Cancel</button>
+    </div>
+
+  </form>
+</div>

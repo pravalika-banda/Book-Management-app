@@ -1,0 +1,37 @@
+<p>book-details works!</p>
+
+<div class="detail-container" *ngIf="book && book.title">
+  <button class="btn-back" (click)="router.navigate(['/BookList'])">
+    ⬅️ Back to List
+  </button>
+
+  <div class="book-detail-card">
+
+    <!-- Image Wrapper -->
+    <div class="image-wrapper">
+      <img
+        [src]="book.coverUrl"
+        alt="{{ book.title }}"
+        class="book-cover"
+      />
+    </div>
+
+    <div class="book-info">
+      <h1 class="book-title">{{ book.title }}</h1>
+      <h3 class="book-author">By {{ book.author }}</h3>
+
+      <p class="book-description">{{ book.description }}</p>
+
+      <div class="book-meta">
+        <span><strong>Price:</strong> ${{ book.price }}</span>
+        <span><strong>Pages:</strong> {{ book.pages }}</span>
+        <span><strong>Categories:</strong> {{ book.categories?.join(', ') }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div *ngIf="!book?.title" class="loader-container">
+  <p>Loading book details...</p>
+</div>

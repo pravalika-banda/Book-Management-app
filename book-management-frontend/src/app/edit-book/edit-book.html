@@ -1,0 +1,104 @@
+<div class="edit-book-container">
+  <h1 class="title">✏️ Edit Book</h1>
+
+  <form (ngSubmit)="updateBook()" class="edit-book-form">
+    <!-- Book Image -->
+    <div class="form-group">
+      <label for="coverUrl">Book Cover URL</label>
+      <input
+        type="text"
+        id="coverUrl"
+        [(ngModel)]="book.coverUrl"
+        name="coverUrl"
+        placeholder="Enter image URL"
+      />
+      <!-- <div class="preview" *ngIf="book.coverUrl">
+        <img [src]="book.coverUrl" alt="Book Cover" />
+      </div> -->
+    </div>
+
+    <!-- Title -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        type="text"
+        id="title"
+        [(ngModel)]="book.title"
+        name="title"
+        placeholder="Enter book title"
+        required
+      />
+    </div>
+
+    <!-- Author -->
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input
+        type="text"
+        id="author"
+        [(ngModel)]="book.author"
+        name="author"
+        placeholder="Enter author name"
+        required
+      />
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        [(ngModel)]="book.description"
+        name="description"
+        rows="4"
+        placeholder="Enter book description"
+      ></textarea>
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+      <label for="price">Price ($)</label>
+      <input
+        type="number"
+        id="price"
+        [(ngModel)]="book.price"
+        name="price"
+        placeholder="Enter price"
+        min="0"
+      />
+    </div>
+
+    <!-- Pages -->
+    <div class="form-group">
+      <label for="pages">Pages</label>
+      <input
+        type="number"
+        id="pages"
+        [(ngModel)]="book.pages"
+        name="pages"
+        placeholder="Enter number of pages"
+        min="1"
+      />
+    </div>
+
+    <!-- Categories -->
+    <div class="form-group">
+      <label for="categories">Categories (comma-separated)</label>
+      <input
+        type="text"
+        id="categories"
+        [(ngModel)]="book.categories"
+        name="categories"
+        placeholder="e.g. Fiction, Adventure"
+      />
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-actions">
+      <button type="submit" class="btn-update">💾 Update Book</button>
+      <button type="button" [routerLink]="['/BookList']" class="btn-cancel">
+        ❌ Cancel
+      </button>
+    </div>
+  </form>
+</div>

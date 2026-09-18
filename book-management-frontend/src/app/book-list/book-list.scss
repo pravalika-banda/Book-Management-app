@@ -1,0 +1,189 @@
+$royal-blue: #1a237e;
+$gold: #ffd700;
+$glass-bg: rgba(255, 255, 255, 0.15);
+
+/* Page background */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $royal-blue, #0d1b4f);
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+
+  .title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid $gold;
+    display: inline-block;
+    padding-bottom: 0.4rem;
+  }
+
+  .top-actions {
+    margin-bottom: 2rem;
+
+    .btn-add {
+      background: $gold;
+      color: #000;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0px 6px 18px rgba(255, 215, 0, 0.45);
+      transition: 0.3s ease;
+
+      &:hover {
+        background: lighten($gold, 10%);
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+/* Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ===============================
+   Vertical Card
+================================ */
+.book-card {
+  height: 360px; /* increased height for full image */
+  background: $glass-bg;
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(255, 215, 0, 0.25);
+  }
+}
+
+/* ===============================
+   Image full height & top
+================================ */
+.img-wrapper {
+  width: 100%;
+  flex: 1 1 auto;  /* image takes all available space */
+  overflow: hidden;
+}
+
+.book-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* shows complete image */
+  display: block;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.03); /* subtle zoom on hover */
+  }
+}
+
+/* ===============================
+   Text
+================================ */
+.book-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.4rem 0 0.1rem;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.5rem;
+}
+
+.author {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.4rem;
+  padding: 0 0.5rem;
+}
+
+/* ===============================
+   Action Buttons
+================================ */
+.actions {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0 0.5rem 0.5rem;
+
+  .btn {
+    flex: 1;
+    padding: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .action-edit {
+    background: #2979ff;
+    color: #fff;
+  }
+
+  .action-delete {
+    background: #d32f2f;
+    color: #fff;
+  }
+
+  .action-details {
+    background: #43a047;
+    color: #fff;
+  }
+}
+
+/* No books */
+.no-books {
+  margin-top: 3rem;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  border-top-color: $gold;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
